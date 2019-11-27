@@ -1,0 +1,12 @@
+.cell {
+  padding: 2em;
+  display: inline-block;
+  border: 2px solid black;
+  margin: 0.1em;
+}
+
+.row {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
