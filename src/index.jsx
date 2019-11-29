@@ -1,13 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Board from './components/Board.jsx';
+import BoardContainer from './containers/BoardContainer.jsx';
+import store from './store.js';
+import { Provider } from 'react-redux';
 
 const App = props => {
   return (
     <div className="app">
-      <Board />
+      <BoardContainer />
     </div>
   );
 }
 
-ReactDOM.render(<App />, document.querySelector('#app'))
+ReactDOM.render(
+  <Provider store={store}>
+    <App />
+  </Provider>, document.querySelector('#app'))

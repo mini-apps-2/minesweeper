@@ -1,4 +1,5 @@
 import { createStore, combineReducers } from 'redux';
+import boardReducer from './reducer.js';
 
 const placeMine = () => {
   const randRowInd = Math.floor(Math.random() * 10);
@@ -55,10 +56,6 @@ for (let i = 0; i < 10; i++) {
   board[mineCoords[0]][mineCoords[1]].hasMine = true;
 }
 
-console.log(board);
-
-const rootReducer = combineReducers(/* Reducers here */);
-
-const store = createStore(rootReducer, board);
+const store = createStore(boardReducer, { board, gameOver: false });
 
 export default store;

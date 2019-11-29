@@ -1,23 +1,17 @@
 import React from 'react';
-import Cell from './Cell.jsx';
+import CellContainer from '../containers/CellContainer.jsx';
 
 const renderCell = (index) => {
-  return <Cell index={index} />
+  return <CellContainer index={index} />
 }
 
 const Row = props => {
   return (
     <div class="row" >
-      { renderCell(0) }
-      { renderCell(1) }
-      { renderCell(2) }
-      { renderCell(3) }
-      { renderCell(4) }
-      { renderCell(5) }
-      { renderCell(6) }
-      { renderCell(7) }
-      { renderCell(8) }
-      { renderCell(9) }
+      {props.cells.map((cell, index) => {
+        console.log(cell);
+        return <CellContainer index={index} rowIndex={props.index} content={cell.content} hasMine={cell.hasMine}/>
+      })}
     </div>
   );
 }
