@@ -1,9 +1,11 @@
 import { connect } from 'react-redux'
 import updateNearby from '../actions/updateNearby.js'
-import Cell from '../components/Cell.jsx';
+import Cell from '../components/Cell.jsx'
 
 const mapStateToProps = state => {
-  board: state.board
+  return {
+    board: state.board
+  }
 }
 
 const mapDispatchToProps = { updateNearby }
