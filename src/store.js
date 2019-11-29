@@ -8,48 +8,17 @@ const placeMine = () => {
   return [randRowInd, randColInd]
 }
 
-const board = [
-  [
-    {content: '', hasMine: false}, {content: '', hasMine: false}, {content: '', hasMine: false}, {content: '', hasMine: false}, {content: '', hasMine: false},
-    {content: '', hasMine: false}, {content: '', hasMine: false}, {content: '', hasMine: false}, {content: '', hasMine: false}, {content: '', hasMine: false}
-  ],
-  [
-    {content: '', hasMine: false}, {content: '', hasMine: false}, {content: '', hasMine: false}, {content: '', hasMine: false}, {content: '', hasMine: false},
-    {content: '', hasMine: false}, {content: '', hasMine: false}, {content: '', hasMine: false}, {content: '', hasMine: false}, {content: '', hasMine: false}
-  ],
-  [
-    {content: '', hasMine: false}, {content: '', hasMine: false}, {content: '', hasMine: false}, {content: '', hasMine: false}, {content: '', hasMine: false},
-    {content: '', hasMine: false}, {content: '', hasMine: false}, {content: '', hasMine: false}, {content: '', hasMine: false}, {content: '', hasMine: false}
-  ],
-  [
-    {content: '', hasMine: false}, {content: '', hasMine: false}, {content: '', hasMine: false}, {content: '', hasMine: false}, {content: '', hasMine: false},
-    {content: '', hasMine: false}, {content: '', hasMine: false}, {content: '', hasMine: false}, {content: '', hasMine: false}, {content: '', hasMine: false}
-  ],
-  [
-    {content: '', hasMine: false}, {content: '', hasMine: false}, {content: '', hasMine: false}, {content: '', hasMine: false}, {content: '', hasMine: false},
-    {content: '', hasMine: false}, {content: '', hasMine: false}, {content: '', hasMine: false}, {content: '', hasMine: false}, {content: '', hasMine: false}
-  ],
-  [
-    {content: '', hasMine: false}, {content: '', hasMine: false}, {content: '', hasMine: false}, {content: '', hasMine: false}, {content: '', hasMine: false},
-    {content: '', hasMine: false}, {content: '', hasMine: false}, {content: '', hasMine: false}, {content: '', hasMine: false}, {content: '', hasMine: false}
-  ],
-  [
-    {content: '', hasMine: false}, {content: '', hasMine: false}, {content: '', hasMine: false}, {content: '', hasMine: false}, {content: '', hasMine: false},
-    {content: '', hasMine: false}, {content: '', hasMine: false}, {content: '', hasMine: false}, {content: '', hasMine: false}, {content: '', hasMine: false}
-  ],
-  [
-    {content: '', hasMine: false}, {content: '', hasMine: false}, {content: '', hasMine: false}, {content: '', hasMine: false}, {content: '', hasMine: false},
-    {content: '', hasMine: false}, {content: '', hasMine: false}, {content: '', hasMine: false}, {content: '', hasMine: false}, {content: '', hasMine: false}
-  ],
-  [
-    {content: '', hasMine: false}, {content: '', hasMine: false}, {content: '', hasMine: false}, {content: '', hasMine: false}, {content: '', hasMine: false},
-    {content: '', hasMine: false}, {content: '', hasMine: false}, {content: '', hasMine: false}, {content: '', hasMine: false}, {content: '', hasMine: false}
-  ],
-  [
-    {content: '', hasMine: false}, {content: '', hasMine: false}, {content: '', hasMine: false}, {content: '', hasMine: false}, {content: '', hasMine: false},
-    {content: '', hasMine: false}, {content: '', hasMine: false}, {content: '', hasMine: false}, {content: '', hasMine: false}, {content: '', hasMine: false}
-  ]
-]
+const renderRow = (board) => {
+  for (let i = 0; i < 10; i++) {
+    const row = []
+    for (let i = 0; i < 10; i++) row.push({content: '', hasMine: false})
+    board.push(row)
+  }
+}
+
+const board = []
+renderRow(board)
+console.log(board)
 
 for (let i = 0; i < 10; i++) {
   const mineCoords = placeMine()
