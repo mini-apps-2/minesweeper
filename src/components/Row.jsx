@@ -7,7 +7,7 @@ const renderCell = (index) => {
 
 const Row = props => {
   return (
-    <div class="row" >
+    <div className="row" >
       {props.cells.map((cell, index) => {
         return <CellContainer index={index} rowIndex={props.index} content={cell.content} hasMine={cell.hasMine}/>
       })}
