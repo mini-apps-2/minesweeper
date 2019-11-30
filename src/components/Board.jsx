@@ -7,13 +7,11 @@ const renderRow = (index) => {
 
 const Board = props => {
   return (
-    <div>
-      <ul>
-        {props.board.map((row, index) => {
-          return <Row index={index} class="row" cells={row}/>
-        })}
-      </ul>
-    </div>
+    <ul class="board">
+      {props.board.map((row, index) => {
+        return <Row index={index} class="row" cells={row}/>
+      })}
+    </ul>
   );
 }
 
