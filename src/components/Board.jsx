@@ -7,7 +7,7 @@ const renderRow = (index) => {
 
 const Board = props => {
   return (
-    <ul class="board">
+    <ul className="board">
       {props.board.map((row, index) => {
         return <Row index={index} class="row" cells={row}/>
       })}
