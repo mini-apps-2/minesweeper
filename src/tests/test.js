@@ -1,12 +1,12 @@
 import BoardContainer from '../containers/BoardContainer.jsx'
 import React from 'react'
 import store from '../store.js'
-import { Provider } from 'react-redux'
 import { shallow, mount } from 'enzyme'
 import configureStore from 'redux-mock-store'
 import CellContainer from '../containers/CellContainer.jsx'
 import Row from '../components/Row.jsx'
 import Cell from '../components/Cell.jsx'
+import { Provider } from 'react-redux'
 
 describe('store correctly generates a board', () => {
   // check if a given model in store has ten randomly placed mines
@@ -115,27 +115,35 @@ describe('cell should render correctly', () => {
 
 describe('row should render correctly', () => {
   let store, wrapper, board
-  
+
   beforeEach(() => {
     store = mockStore(initialState)
     board = store.getState().board
-    wrapper = shallow(
-      <div>
+    wrapper = mount(
+      <Provider store={store}>
         <Row index={0} cells={board[0]} />
-      </div>
+      </Provider>
     )
   })
 
+  afterEach(() => {
+    wrapper.unmount()
+  })
+
   it ('should render Row component', () => {
-    expect(wrapper.contains(<Row index={0} cells={board[0]} />)).toBeTruthy()
+    expect(wrapper.find('Provider').contains(<Row index={0} cells={board[0]} />)).toBeTruthy()
   })
 
-  it ('shoud render Row component with cells', () => {
-    expect(wrapper.find('Row').contains(<CellContainer />))
+  it ('should render Row component with class \'row\'', () => {
+    expect(wrapper.find('Row').childAt(0).hasClass('row')).toBeTruthy()
   })
 
-  it ('should render Row component with index', () => {
+  it ('should render Row component with index prop', () => {
     expect(wrapper.find('Row').prop('index')).toEqual(0)
+  })
+
+  it ('should render Row component with cells prop', () => {
+    expect(wrapper.find('Row').prop('cells')).toEqual(board[0])
   })
 })
 
