@@ -15,10 +15,8 @@ const renderRow = (board) => {
     board.push(row)
   }
 }
-
 const board = []
 renderRow(board)
-console.log(board)
 
 for (let i = 0; i < 10; i++) {
   const mineCoords = placeMine()
