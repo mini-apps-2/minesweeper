@@ -1,12 +1,18 @@
-import BoardContainer from '../containers/BoardContainer.jsx'
 import React from 'react'
 import store from '../store.js'
 import { shallow, mount } from 'enzyme'
 import configureStore from 'redux-mock-store'
+import { Provider } from 'react-redux'
+
+// React components
+import BoardContainer from '../containers/BoardContainer.jsx'
 import CellContainer from '../containers/CellContainer.jsx'
 import Row from '../components/Row.jsx'
 import Cell from '../components/Cell.jsx'
-import { Provider } from 'react-redux'
+import Board from '../components/Board.jsx'
+
+// Action creators
+import updateNearby from '../actions/updateNearby.js'
 
 describe('store correctly generates a board', () => {
   // check if a given model in store has ten randomly placed mines
@@ -165,4 +171,26 @@ describe('cell component should render correctly', () => {
   it ('should render Cell component with onClick property', () => {
     expect(wrapper.childAt(0).prop('onClick')).toBeTruthy()
   })
+})
+
+describe('board component should render correctly', () => {
+  let wrapper, store, board
+
+  beforeEach(() => {
+    store = mockStore(initialState)
+    board = store.getState().board
+    wrapper = mount(
+      <Provider store={store}>
+        <Board board={board} />
+      </Provider>
+    )
+  })
+
+  it ('should render Board component with class \'board\'', () => {
+    expect(wrapper.find('Board').childAt(0).hasClass('board'))
+  })
+})
+
+describe('action creators should dispatch actions correctly', () => {
+  
 })
