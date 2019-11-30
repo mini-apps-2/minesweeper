@@ -22,7 +22,7 @@ import React from 'react'
 // }
 
 const Cell = props => {
-  return <div class="cell" onClick={e => console.log('BOARD: ', props.board)}></div>
+  return <div className="cell" onClick={e => console.log('BOARD: ', props.board)}></div>
 }
 
 export default Cell;
