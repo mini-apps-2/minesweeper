@@ -11,8 +11,9 @@ import Row from '../components/Row.jsx'
 import Cell from '../components/Cell.jsx'
 import Board from '../components/Board.jsx'
 
-// Action creators
+// Action creators/reducers
 import updateNearby from '../actions/updateNearby.js'
+import boardReducer from '../reducer.js'
 
 describe('store correctly generates a board', () => {
   // check if a given model in store has ten randomly placed mines
@@ -192,5 +193,23 @@ describe('board component should render correctly', () => {
 })
 
 describe('action creators should dispatch actions correctly', () => {
-  
+  it ('should dispatch correct action for updateNearby', () => {
+    expect(updateNearby(3, 5, 5)).toEqual({ type: 'UPDATE_NEARBY', numOfMines: 3, cellIndex: 5, rowIndex: 5 })
+  })
+})
+
+describe('reducers should modify state correctly', () => {
+  let firstStore, secondStore
+
+  beforeEach(() => {
+    firstStore = mockStore(initialState)
+    secondStore = firstStore.getState()
+    secondStore.board[5][5].content = 5
+    firstStore = firstStore.getState()
+  })
+
+  it ('UPDATE_NEARBY: should update specified cell content with number of nearby mines', () => {
+    firstStore = boardReducer(firstStore, { type: 'UPDATE_NEARBY', cellIndex: 5, rowIndex: 5 })
+    expect(firstStore).toEqual(secondStore)
+  })
 })
