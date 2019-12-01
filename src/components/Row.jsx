@@ -9,7 +9,7 @@ const Row = props => {
   return (
     <div className="row" >
       {props.cells.map((cell, index) => {
-        return <CellContainer index={index} rowIndex={props.index} content={cell.content} hasMine={cell.hasMine}/>
+        return <CellContainer index={index} rowIndex={props.index}/>
       })}
     </div>
   );
