@@ -4,6 +4,7 @@ import { shallow, mount } from 'enzyme'
 import configureStore from 'redux-mock-store'
 import { Provider } from 'react-redux'
 import isAdjacentToMine from '../components/helpers.js'
+import { getNumberOfMines } from '../components/helpers.js'
 
 // React components
 import BoardContainer from '../containers/BoardContainer.jsx'
@@ -215,7 +216,7 @@ describe('reducers should modify state correctly', () => {
   })
 })
 
-describe('helper functions should work as expected', () => {
+describe('helper function \'isAdjacentToMine\' should work as expected', () => {
   let board, cell
 
   beforeEach(() => {
@@ -277,5 +278,22 @@ describe('helper functions should work as expected', () => {
   it ('should not check a cell to the right of input cell at far right of row', () => {
     cell = board[1][2]
     expect(isAdjacentToMine(cell, board)).toEqual(false)
+  })
+})
+
+describe('helper function getNumberOfMines should work as expected', () => {
+  let board, cell
+
+  beforeEach(() => {
+    board = [
+      [{content: "", hasMine: true, index: 0, rowIndex: 0}, {content: "", hasMine: false, index: 1, rowIndex: 0}, {content: "", hasMine: false, index: 2, rowIndex: 0}],
+      [{content: "", hasMine: false, index: 0, rowIndex: 1}, {content: "", hasMine: false, index: 1, rowIndex: 1}, {content: "", hasMine: true, index: 2, rowIndex: 1}],
+      [{content: "", hasMine: false, index: 0, rowIndex: 2}, {content: "", hasMine: true, index: 1, rowIndex: 2}, {content: "", hasMine: false, index: 2, rowIndex: 2}],
+    ]
+    cell = board[1][1]
+  })
+
+  it ('should return correct number of mines for cell in middle of board', () => {
+    expect(getNumberOfMines(cell, board)).toEqual(3)
   })
 })
