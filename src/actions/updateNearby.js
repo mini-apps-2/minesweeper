@@ -1,4 +1,5 @@
 const updateNearby = (numOfMines, cellIndex, rowIndex) => {
+  console.log('UPDATED: ', cellIndex, rowIndex)
   return {
     type: 'UPDATE_NEARBY',
     numOfMines,

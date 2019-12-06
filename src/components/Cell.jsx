@@ -1,34 +1,50 @@
-import React from 'react'
+import React, { Component } from 'react'
 
-class Cell extends React.Component {
+class Cell extends Component {
   constructor(props) {
     super(props)
 
     this.handleClick = this.handleClick.bind(this)
+    this.checkNearby = this.checkNearby.bind(this)
   }
 
-  checkNearby() {
+  checkNearby(cell) {
     const rowsToCheck = [
-      this.props.board[this.props.rowIndex + 1], // row above
-      this.props.board[this.props.rowIndex], // same row
-      this.props.board[this.props.rowIndex - 1] // row below
+      this.props.board[cell.rowIndex + 1], // row above
+      this.props.board[cell.rowIndex], // same row
+      this.props.board[cell.rowIndex - 1] // row below
     ]
 
     let mines = 0
 
     for (let row of rowsToCheck) {
-      if (row[this.props.index].hasMine) mines++
-      if (row[this.props.index + 1].hasMine) mines++
-      if (row[this.props.index - 1].hasMine) mines++
+      const secondCell = row[cell.index]
+      const thirdCell = row[cell.index + 1]
+      const firstCell = row[cell.index - 1]
+
+      if (secondCell.hasMine) {
+        mines++
+      } 
+
+      if (thirdCell.hasMine) {
+        mines++
+      }
+
+      if (firstCell.hasMine) {
+        mines++
+      }
+
     }
 
     return mines
   }
 
   handleClick(e) {
-    const numOfMines = this.checkNearby()
+    console.log(this.props.index, this.props.rowIndex)
+    const numOfMines = this.checkNearby(this.props.board[this.props.rowIndex][this.props.index])
+    console.log('MINES: ', numOfMines)
     if (numOfMines) {
-      this.props.updateNearby(numOfMines)
+      this.props.updateNearby(numOfMines, this.props.index, this.props.rowIndex)
     }
   }
 

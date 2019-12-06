@@ -11,7 +11,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    updateNearby: (numOfMines) => dispatch(updateNearby(numOfMines, ownProps.index, ownProps.rowIndex))
+    updateNearby: (numOfMines, index, rowIndex) => dispatch(updateNearby(numOfMines, index, rowIndex))
   }
 }
 

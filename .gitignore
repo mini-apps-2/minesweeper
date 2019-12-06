@@ -1,3 +1,4 @@
 package-lock.json
 dist/bundle.js
 coverage/
+node_modules
