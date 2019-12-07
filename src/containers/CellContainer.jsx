@@ -1,5 +1,6 @@
 import { connect } from 'react-redux'
 import updateNearby from '../actions/updateNearby.js'
+import showBombs from '../actions/showBombs.js'
 import Cell from '../components/Cell.jsx'
 
 const mapStateToProps = (state, ownProps) => {
@@ -11,7 +12,8 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    updateNearby: (numOfMines, index, rowIndex) => dispatch(updateNearby(numOfMines, index, rowIndex))
+    updateNearby: (numOfMines, index, rowIndex) => dispatch(updateNearby(numOfMines, index, rowIndex)),
+    showBombs: () => dispatch(showBombs())
   }
 }
 

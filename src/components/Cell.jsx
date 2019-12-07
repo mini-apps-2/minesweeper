@@ -16,8 +16,7 @@ class Cell extends Component {
       // if cell contains a mine...
       if (cell.hasMine) {
         console.log('BOOM')
-        updatedBoard[cell.rowIndex][cell.index].content = '*BOOM*'
-        // add action/reducer and call it
+        this.props.showBombs()
         return
       }
 
@@ -52,7 +51,7 @@ class Cell extends Component {
             if (row[cellIndex].content !== '') continue 
             // skip blank cells which have already been checked
             if (row[cellIndex].hasBeenChecked !== false) continue
-            
+
             updatedBoard[updatedBoard.indexOf(row)][cellIndex].hasBeenChecked = true
             innerFunc(row[cellIndex])
           }
