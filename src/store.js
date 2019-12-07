@@ -11,7 +11,7 @@ const placeMine = () => {
 const renderRow = (board) => {
   for (let i = 0; i < 10; i++) {
     const row = []
-    for (let a = 0; a < 10; a++) row.push({content: '', hasMine: false, index: a, rowIndex: i})
+    for (let a = 0; a < 10; a++) row.push({content: '', hasMine: false, index: a, rowIndex: i, hasBeenChecked: false})
     board.push(row)
   }
 }

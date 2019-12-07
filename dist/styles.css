@@ -1,10 +1,16 @@
-.cell {
+.cell, .clicked {
   height: 5vh;
   width: 5vw;
   display: inline-block;
   border: 2px solid black;
   margin: 0.1em;
   text-align: center;
+  vertical-align: top;
+  text-align: center;
+}
+
+.clicked {
+  background-color: gray
 }
 
 .row {
