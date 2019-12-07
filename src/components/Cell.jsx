@@ -63,7 +63,9 @@ class Cell extends Component {
   }
 
   handleClick(e) {
-    this.checkNearby(this.props.board[this.props.rowIndex][this.props.index])
+    if (this.props.gameOver === false) 
+      this.checkNearby(this.props.board[this.props.rowIndex][this.props.index])
+
   }
 
   render() {

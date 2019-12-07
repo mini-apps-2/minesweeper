@@ -6,7 +6,8 @@ import Cell from '../components/Cell.jsx'
 const mapStateToProps = (state, ownProps) => {
   return {
     board: state.board,
-    content: state.board[ownProps.rowIndex][ownProps.index].content
+    content: state.board[ownProps.rowIndex][ownProps.index].content,
+    gameOver: state.gameOver
   }
 }
 
