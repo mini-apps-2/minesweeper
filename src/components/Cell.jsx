@@ -15,7 +15,6 @@ class Cell extends Component {
     const innerFunc = (cell) => {
       // if cell contains a mine...
       if (cell.hasMine) {
-        console.log('BOOM')
         this.props.showBombs()
         return
       }
@@ -69,7 +68,7 @@ class Cell extends Component {
   }
 
   render() {
-    return <div className="cell" onClick={this.handleClick}>{this.props.content}</div>
+    return <div className={this.props.class} onClick={this.handleClick}>{this.props.content}</div>
   }
 }
 

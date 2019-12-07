@@ -7,7 +7,8 @@ const mapStateToProps = (state, ownProps) => {
   return {
     board: state.board,
     content: state.board[ownProps.rowIndex][ownProps.index].content,
-    gameOver: state.gameOver
+    gameOver: state.gameOver,
+    class: state.board[ownProps.rowIndex][ownProps.index].class
   }
 }
 
