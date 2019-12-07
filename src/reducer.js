@@ -12,6 +12,9 @@ const boardReducer = (state = [], action) => {
         }
       }
       return {...state, board: newBoard, gameOver: true }
+    case 'TOGGLE_CLASS':
+      newBoard[action.rowIndex][action.cellIndex].class = newBoard[action.rowIndex][action.cellIndex].class === 'cell' ? 'cell-checked' : 'cell'
+      return {...state, board: newBoard}
     default:
       return state;
   }

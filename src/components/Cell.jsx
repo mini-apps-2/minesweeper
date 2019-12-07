@@ -27,7 +27,6 @@ class Cell extends Component {
 
       // if cell is not adjacent to a mine...
       if (!isAdjacentToMine(cell, updatedBoard)) {
-        //console.log('NOT ADJACENT')
         const rowsToCheck = [
           updatedBoard[cell.rowIndex], 
           updatedBoard[cell.rowIndex - 1], 
@@ -52,6 +51,7 @@ class Cell extends Component {
             if (row[cellIndex].hasBeenChecked !== false) continue
 
             updatedBoard[updatedBoard.indexOf(row)][cellIndex].hasBeenChecked = true
+            this.props.toggleClass(updatedBoard.indexOf(row), cellIndex)
             innerFunc(row[cellIndex])
           }
         }

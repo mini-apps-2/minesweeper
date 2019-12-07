@@ -2,6 +2,7 @@ import { connect } from 'react-redux'
 import updateNearby from '../actions/updateNearby.js'
 import showBombs from '../actions/showBombs.js'
 import Cell from '../components/Cell.jsx'
+import toggleClass from '../actions/toggleClass.js'
 
 const mapStateToProps = (state, ownProps) => {
   return {
@@ -12,10 +13,11 @@ const mapStateToProps = (state, ownProps) => {
   }
 }
 
-const mapDispatchToProps = (dispatch, ownProps) => {
+const mapDispatchToProps = dispatch => {
   return {
     updateNearby: (numOfMines, index, rowIndex) => dispatch(updateNearby(numOfMines, index, rowIndex)),
-    showBombs: () => dispatch(showBombs())
+    showBombs: () => dispatch(showBombs()),
+    toggleClass: (cellIndex, rowIndex) => dispatch(toggleClass(cellIndex, rowIndex))
   }
 }
 

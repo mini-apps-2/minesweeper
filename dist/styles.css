@@ -1,4 +1,4 @@
-.cell, .clicked {
+.cell, .cell-checked {
   height: 5vh;
   width: 5vw;
   display: inline-block;
@@ -9,7 +9,7 @@
   text-align: center;
 }
 
-.clicked {
+.cell-checked {
   background-color: gray
 }
 
