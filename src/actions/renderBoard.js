@@ -1,8 +1,8 @@
-const renderBoard = (size, numberOfMines) => {
+const renderBoard = (size, numOfMines) => {
   return {
     type: 'RENDER_BOARD',
     size,
-    numberOfMines
+    numOfMines
   }
 }
 

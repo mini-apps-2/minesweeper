@@ -1,6 +1,6 @@
-const placeMine = () => {
-  const randRowInd = Math.floor(Math.random() * 10)
-  const randColInd = Math.floor(Math.random() * 10)
+const placeMine = (numOfRows) => {
+  const randRowInd = Math.floor(Math.random() * numOfRows)
+  const randColInd = Math.floor(Math.random() * numOfRows)
 
   return [randRowInd, randColInd]
 }

@@ -21,7 +21,7 @@ const boardReducer = (state = [], action) => {
       const board = []
       renderRow(board, action.size)
       for (let i = 0; i < action.numOfMines; i++) {
-        const mineCoords = placeMine()
+        const mineCoords = placeMine(action.size)
         if (board[mineCoords[0]][mineCoords[1]].hasMine === true) i--
         board[mineCoords[0]][mineCoords[1]].hasMine = true
       }

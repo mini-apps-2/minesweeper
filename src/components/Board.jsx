@@ -1,18 +1,17 @@
 import React from 'react'
 import Row from './Row.jsx'
 
-const renderRow = (index) => {
-  return <Row index={index} />;
-}
-
 const Board = props => {
-  return (
-    <ul className="board">
-      {props.board.map((row, index) => {
-        return <Row index={index} class="row" cells={row}/>
-      })}
-    </ul>
-  );
+  if (props.board) {
+    return (
+      <ul className="board">
+        {props.board.map((row, index) => {
+          return <Row index={index} class="row" cells={row}/>
+        })}
+      </ul>
+    );
+  } else return <div></div>
+
 }
 
-export default Board;
+export default Board

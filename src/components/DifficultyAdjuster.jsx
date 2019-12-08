@@ -1,6 +1,4 @@
 import React, { Component } from 'react'
-import SizeController from './sizeController.jsx'
-import NumOfMinesController from './numOfMinesController.jsx'
 
 class DifficultyAdjuster extends Component {
   constructor(props) {
@@ -14,6 +12,10 @@ class DifficultyAdjuster extends Component {
     this.handleMineCountChange = this.handleMineCountChange.bind(this)
   }
 
+  componentDidMount() {
+    this.props.renderBoard(10, 10)
+  }
+
   handleSizeChange(e) {
     this.setState({ size: e.target.value }, () => this.props.renderBoard(this.state.size, this.state.difficulty))
   }
@@ -23,10 +25,12 @@ class DifficultyAdjuster extends Component {
   }
 
   render() {
-    <div id="difficulty-adjuster">
-      <SizeController handleClick={this.handleClick} />
-      <NumOfMinesController handleClick={this.handleClick} />
-    </div>
+    return (
+      <div id="difficulty-adjuster">
+        <input class="size" type="number" onChange={this.handleSizeChange} value={this.state.size} />
+        <input class="mines" type="number" onChange={this.handleMineCountChange} value={this.state.difficulty} />
+      </div>
+    )
   }
 }
 
