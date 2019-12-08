@@ -29,6 +29,8 @@ const boardReducer = (state = [], action) => {
         board[mineCoords[0]][mineCoords[1]].hasMine = true
       }
       return {...state, board, duration}
+    case 'INCREMENT_SCORE':
+      return {...state, score: state.score + 1}
     default:
       return state;
   }
