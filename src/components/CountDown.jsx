@@ -51,6 +51,7 @@ class CountDown extends Component {
         this.setState({ count: this.state.count - 1 }, () => {
           if (this.state.count === 0) {
             this.props.showBombs() // dispatch action to end game
+            clearInterval(intervalId)
           }
         })
       }
