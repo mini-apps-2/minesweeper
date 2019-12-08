@@ -18,6 +18,9 @@ const boardReducer = (state = [], action) => {
       newBoard[action.rowIndex][action.cellIndex].class = newBoard[action.rowIndex][action.cellIndex].class === 'cell' ? 'cell-checked' : 'cell'
       return {...state, board: newBoard}
     case 'RENDER_BOARD':
+      // calculate time based on difficulty
+      const duration = action.size * action.numOfMines - (action.size * action.numOfMines / 2)
+
       const board = []
       renderRow(board, action.size)
       for (let i = 0; i < action.numOfMines; i++) {
@@ -25,7 +28,7 @@ const boardReducer = (state = [], action) => {
         if (board[mineCoords[0]][mineCoords[1]].hasMine === true) i--
         board[mineCoords[0]][mineCoords[1]].hasMine = true
       }
-      return {...state, board}
+      return {...state, board, duration}
     default:
       return state;
   }
