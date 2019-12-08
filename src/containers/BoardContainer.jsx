@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import Board from '../components/Board.jsx';
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
     board: state.board  
   }
