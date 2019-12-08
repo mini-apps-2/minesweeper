@@ -21,12 +21,15 @@ class Cell extends Component {
 
       // if cell is adjacent to a mine...
       if (isAdjacentToMine(cell, updatedBoard)) {
+        cell.hasBeenChecked = true
         const numOfMines = getNumberOfMines(cell, updatedBoard)
         this.props.updateNearby(numOfMines, cell.index, cell.rowIndex)
+        this.props.incrementScore()
       }
 
       // if cell is not adjacent to a mine...
       if (!isAdjacentToMine(cell, updatedBoard)) {
+        this.props.incrementScore()
         const rowsToCheck = [
           updatedBoard[cell.rowIndex], 
           updatedBoard[cell.rowIndex - 1], 
