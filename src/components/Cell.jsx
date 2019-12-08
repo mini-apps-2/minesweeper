@@ -46,8 +46,6 @@ class Cell extends Component {
             // skip input cell
             if (row === updatedBoard[cell.rowIndex] && cellIndex === cell.index) continue 
             // skip cells which have already been checked
-            if (row[cellIndex].content !== '') continue 
-            // skip blank cells which have already been checked
             if (row[cellIndex].hasBeenChecked !== false) continue
 
             updatedBoard[updatedBoard.indexOf(row)][cellIndex].hasBeenChecked = true
