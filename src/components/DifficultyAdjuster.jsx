@@ -17,11 +17,17 @@ class DifficultyAdjuster extends Component {
   }
 
   handleSizeChange(e) {
-    this.setState({ size: e.target.value }, () => this.props.renderBoard(this.state.size, this.state.difficulty))
+    //console.log('SIZE: ', this.state.size, 'MINES: ', this.state.difficulty)
+    if (e.target.value >= this.state.difficulty) {
+      this.setState({ size: e.target.value }, () => this.props.renderBoard(this.state.size, this.state.difficulty))
+    }
   }
 
   handleMineCountChange(e) {
-    this.setState({ difficulty: e.target.value }, () => this.props.renderBoard(this.state.size, this.state.difficulty))
+    //console.log('MINES: ', e.target.value, 'SIZE: ', this.state.size)
+    if (e.target.value <= this.state.size) {
+      this.setState({ difficulty: e.target.value }, () => this.props.renderBoard(this.state.size, this.state.difficulty))
+    }
   }
 
   render() {
