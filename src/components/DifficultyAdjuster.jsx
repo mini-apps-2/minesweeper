@@ -17,7 +17,6 @@ class DifficultyAdjuster extends Component {
   }
 
   handleSizeChange(e) {
-    //console.log('SIZE: ', this.state.size, 'MINES: ', this.state.difficulty)
     if (e.target.value >= this.state.difficulty) {
       this.setState({ size: e.target.value }, () => this.props.renderBoard(this.state.size, this.state.difficulty))
     }
