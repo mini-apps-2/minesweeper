@@ -17,8 +17,7 @@ class CountDown extends Component {
       else if (this.state.count !== null) {
         this.setState({ count: this.state.count - 1 }, () => {
           if (this.state.count === 0) {
-            // dispatch action here
-         
+            this.props.showBombs() // dispatch action to end game
             clearInterval(intervalId) // stop the timer
           }
         })
