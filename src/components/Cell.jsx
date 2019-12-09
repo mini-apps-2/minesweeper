@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import isAdjacentToMine, { getNumberOfMines } from '../components/helpers.js'
+import axios from 'axios'
 
 class Cell extends Component {
   constructor(props) {
@@ -16,6 +17,7 @@ class Cell extends Component {
       // if cell contains a mine...
       if (cell.hasMine) {
         this.props.showBombs()
+        axios.post('/scores', { score: this.props.score, difficulty: this.props.difficulty })
         return
       }
 

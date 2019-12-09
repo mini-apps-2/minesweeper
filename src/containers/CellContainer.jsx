@@ -10,7 +10,9 @@ const mapStateToProps = (state, ownProps) => {
     board: state.board,
     content: state.board[ownProps.rowIndex][ownProps.index].content,
     gameOver: state.gameOver,
-    class: state.board[ownProps.rowIndex][ownProps.index].class
+    class: state.board[ownProps.rowIndex][ownProps.index].class,
+    score: state.score,
+    difficulty: state.difficulty
   }
 }
 
