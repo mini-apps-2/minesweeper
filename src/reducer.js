@@ -1,4 +1,5 @@
 import { placeMine, renderRow } from './reducerHelpers.js'
+import axios from 'axios'
 
 const boardReducer = (state = [], action) => {
   const copyOfState = {...state}
@@ -37,6 +38,9 @@ const boardReducer = (state = [], action) => {
       return {...state, board, duration, difficulty}
     case 'INCREMENT_SCORE':
       return {...state, score: state.score + 1}
+    case 'SUBMIT_SCORE':
+      axios.post('/scores', { score: state.score, difficulty: state.difficulty })
+        .then(axios.get('/scores').then(data => ({...state, scoreBoard: data})))
     default:
       return state;
   }

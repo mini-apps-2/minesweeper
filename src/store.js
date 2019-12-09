@@ -6,7 +6,8 @@ const store = createStore(boardReducer, {
   gameOver: false, 
   duration: null, 
   score: 0,
-  difficulty: null
+  difficulty: null,
+  scoreBoard: null
 })
 
 export default store

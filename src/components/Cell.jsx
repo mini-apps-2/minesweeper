@@ -17,7 +17,7 @@ class Cell extends Component {
       // if cell contains a mine...
       if (cell.hasMine) {
         this.props.showBombs()
-        axios.post('/scores', { score: this.props.score, difficulty: this.props.difficulty })
+        this.props.submitScore()
         return
       }
 

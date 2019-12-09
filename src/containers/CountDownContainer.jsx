@@ -5,7 +5,9 @@ import CountDown from '../components/CountDown.jsx'
 export default connect(
   state => ({ 
     duration: state.duration,
-    gameOver: state.gameOver
+    gameOver: state.gameOver,
+    score: state.score,
+    difficulty: state.difficulty
   }),
   dispatch => ({ showBombs: () => dispatch(showBombs()) })
 )(CountDown)
