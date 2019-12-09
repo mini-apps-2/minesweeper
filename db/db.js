@@ -1,10 +1,13 @@
 const mysql = require('mysql')
-const password = require('./mysql_config.js')
+const { password } = require('./mysql_config.js')
 
 const connection = mysql.createConnection({
-  host: 'localhost:3000',
+  host: 'localhost',
   user: 'root',
-  password: password
+  password: password,
+  database: 'minesweeper'
 })
 
-exports.connection = connection.connect(err => { if (err) console.log(err) })
+connection.connect()
+
+exports.connection = connection
