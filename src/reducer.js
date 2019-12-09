@@ -20,6 +20,12 @@ const boardReducer = (state = [], action) => {
     case 'RENDER_BOARD':
       // calculate time based on difficulty
       const duration = action.size * action.numOfMines - (action.size * action.numOfMines / 2)
+      
+      // calculate difficulty level
+      let difficulty
+      if (duration <= 50) difficulty = 'easy'
+      if (duration > 50 && duration <= 100) difficulty = 'hard'
+      if (duration > 100) difficulty = 'ludicrous'
 
       const board = []
       renderRow(board, action.size)
@@ -28,7 +34,7 @@ const boardReducer = (state = [], action) => {
         if (board[mineCoords[0]][mineCoords[1]].hasMine === true) i--
         board[mineCoords[0]][mineCoords[1]].hasMine = true
       }
-      return {...state, board, duration}
+      return {...state, board, duration, difficulty}
     case 'INCREMENT_SCORE':
       return {...state, score: state.score + 1}
     default:
