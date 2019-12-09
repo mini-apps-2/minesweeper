@@ -9,29 +9,6 @@ class CountDown extends Component {
     }
   }
 
-  interval(duration) {
-    const intervalId = setInterval(() => {
-      if (this.props.gameOver === true) clearInterval(intervalId)
-      // set 'count' if it hasn't already been set due to asynchronicity
-      if (this.state.count === null && this.props.duration !== null) 
-        this.setState({ count: this.props.duration })
-      // if board is resized, reset timer
-      else if (this.props.duration !== startDuration && startDuration !== null) {
-        this.setState({ 
-          count: this.props.duration,
-          startDuration: this.props.duration 
-        })
-      }
-      else if (this.state.count !== null) {
-        this.setState({ count: this.state.count - 1 }, () => {
-          if (this.state.count === 0) {
-            this.props.showBombs() // dispatch action to end game
-          }
-        })
-      }
-    }, 1000)
-  }
-
   componentDidMount() {
     const intervalId = setInterval(() => {
       if (this.props.gameOver === true) clearInterval(intervalId)
@@ -51,6 +28,7 @@ class CountDown extends Component {
         this.setState({ count: this.state.count - 1 }, () => {
           if (this.state.count === 0) {
             this.props.showBombs() // dispatch action to end game
+            this.props.submitScore()
             clearInterval(intervalId)
           }
         })
