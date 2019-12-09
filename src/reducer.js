@@ -16,7 +16,7 @@ const boardReducer = (state = [], action) => {
       }
       return {...state, board: newBoard, gameOver: true }
     case 'TOGGLE_CLASS':
-      newBoard[action.rowIndex][action.cellIndex].class = newBoard[action.rowIndex][action.cellIndex].class === 'cell' ? 'cell-checked' : 'cell'
+      newBoard[action.rowIndex][action.cellIndex].class = 'cell-checked'
       return {...state, board: newBoard}
     case 'RENDER_BOARD':
       // calculate time based on difficulty

@@ -38,8 +38,8 @@ class CountDown extends Component {
 
   render() {
     if (this.props.duration !== null) {
-      return <h2 className="timer">Time remaining: {this.state.count} seconds</h2>
-    } else return <h2 className="timer">Error: endTime is null</h2>
+      return <h1 id="timer">Time remaining: {this.state.count} seconds</h1>
+    } else return <h1 id="timer">Error: endTime is null</h1>
   }
 }
 

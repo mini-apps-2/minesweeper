@@ -10,8 +10,8 @@ import ScoreBoardContainer from './containers/ScoreBoardContainer.jsx'
 const App = props => {
   return (
     <div className="app">
-      <DifficultyAdjusterContainer />
       <CountDownContainer />
+      <DifficultyAdjusterContainer />
       <BoardContainer />
       <ScoreBoardContainer />
     </div>

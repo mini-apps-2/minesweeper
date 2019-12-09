@@ -1,20 +1,68 @@
+body {
+  font-family: 'Share Tech Mono', monospace;
+}
+
+.board {
+  border-collapse: collapse;
+  width: 50%;
+  margin: auto;
+  padding-bottom: 3vh;
+}
+
 .cell, .cell-checked {
-  height: 5vh;
-  width: 5vw;
+  height: 2vh;
+  width: 2vw;
   display: inline-block;
   border: 2px solid black;
-  margin: 0.1em;
   text-align: center;
   vertical-align: top;
   text-align: center;
+  color: blue;
+  background-color: lightgray;    
 }
 
 .cell-checked {
-  background-color: gray
+  background-color: gray;
 }
 
 .row {
   margin: 0;
   padding: 0;
   text-align: center;
+}
+
+#timer {
+  text-align: center;
+}
+
+#score-header {
+  margin: auto;
+  width: 15%;
+  text-align: center;
+}
+
+#score-board {
+  display: flex;
+  flex-direction: column;
+  height: 45vh;
+  text-align: center;
+  border: 2px solid black;
+  justify-content: center;
+  padding:1vh;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+
+#difficulty-adjuster {
+  display: flex;
+  justify-content: center;
+  width: 50%;
+  margin: auto;
+  padding: 1vh;
+  align-content: space-between;
+}
+
+input {
+  width: 4vh;
+  margin-right: 1vh;
 }
