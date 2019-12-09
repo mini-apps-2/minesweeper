@@ -5,6 +5,7 @@ import store from './store.js'
 import { Provider } from 'react-redux'
 import DifficultyAdjusterContainer from './containers/DifficultyAdjusterContainer.jsx'
 import CountDownContainer from './containers/CountDownContainer.jsx'
+import ScoreBoardContainer from './containers/ScoreBoardContainer.jsx'
 
 const App = props => {
   return (
@@ -12,6 +13,7 @@ const App = props => {
       <DifficultyAdjusterContainer />
       <CountDownContainer />
       <BoardContainer />
+      <ScoreBoardContainer />
     </div>
   )
 }

@@ -39,8 +39,9 @@ const boardReducer = (state = [], action) => {
     case 'INCREMENT_SCORE':
       return {...state, score: state.score + 1}
     case 'SUBMIT_SCORE':
-      axios.post('/scores', { score: state.score, difficulty: state.difficulty })
-        .then(axios.get('/scores').then(data => ({...state, scoreBoard: data})))
+      return ({...state, scoreBoard: action.scores})
+    case 'GET_SCORE':
+      return ({...state, scoreBoard: action.scores})
     default:
       return state;
   }

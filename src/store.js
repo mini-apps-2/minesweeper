@@ -1,5 +1,6 @@
-import { createStore } from 'redux'
+import { createStore, applyMiddleware } from 'redux'
 import boardReducer from './reducer.js'
+import thunk from 'redux-thunk'
 
 const store = createStore(boardReducer, { 
   board: null, 
@@ -8,6 +9,6 @@ const store = createStore(boardReducer, {
   score: 0,
   difficulty: null,
   scoreBoard: null
-})
+}, applyMiddleware(thunk))
 
 export default store
